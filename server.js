@@ -6,9 +6,10 @@ const webpack= require('webpack');
 const webpackConfig = require('./webpack.config.js');
 const webpackMiddleware = require('webpack-dev-middleware');
 
+const MODE = 'production';
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(webpackMiddleware(webpack(webpackConfig('development'))));
+app.use(webpackMiddleware(webpack(webpackConfig(MODE))));
 
 app.get('/', (req, res) => {
     // res.send('I have the power');
